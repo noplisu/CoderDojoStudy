@@ -21,5 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
+  adapter: postgresql
+  database: <%= ENV['DATABASE_NAME'] %>
   database: db/production.sqlite3
+  encoding: unicode
+  host: <%= ENV['DATABASE_HOST'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
+  username: <%= ENV['DATABASE_USERNAME'] %>
